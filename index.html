@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geologist Assistance</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Field notebook</p>
+          <h1>Geologist Assistance</h1>
+        </div>
+        <div class="status-chip">Rapid rock & sample review</div>
+      </header>
+
+      <main class="grid">
+        <section class="panel">
+          <h2>Sample details</h2>
+          <form id="sampleForm">
+            <div class="field-row two-col">
+              <label>
+                Sample ID
+                <input id="sampleName" type="text" placeholder="e.g. S-102" required />
+              </label>
+              <label>
+                Location
+                <input id="location" type="text" placeholder="e.g. Central Valley" required />
+              </label>
+            </div>
+
+            <div class="field-row two-col">
+              <label>
+                Rock color
+                <input id="color" type="text" placeholder="e.g. dark gray" />
+              </label>
+              <label>
+                Grain size
+                <select id="grainSize">
+                  <option value="fine">Fine-grained</option>
+                  <option value="medium">Medium-grained</option>
+                  <option value="coarse">Coarse-grained</option>
+                  <option value="porphyritic">Porphyritic</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-row two-col">
+              <label>
+                Texture
+                <select id="texture">
+                  <option value="massive">Massive</option>
+                  <option value="layered">Layered</option>
+                  <option value="foliated">Foliated</option>
+                  <option value="vesicular">Vesicular</option>
+                  <option value="porphyritic">Porphyritic</option>
+                  <option value="granular">Granular</option>
+                </select>
+              </label>
+              <label>
+                Hardness
+                <select id="hardness">
+                  <option value="soft">Soft</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="hard">Hard</option>
+                  <option value="very-hard">Very hard</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Dominant minerals
+              <input id="minerals" type="text" placeholder="quartz, feldspar, mica" />
+            </label>
+
+            <div class="field-row two-col">
+              <label>
+                Formation environment
+                <select id="environment">
+                  <option value="volcanic">Volcanic</option>
+                  <option value="marine">Marine</option>
+                  <option value="fluvial">Fluvial</option>
+                  <option value="metamorphic-basin">Regional metamorphic</option>
+                  <option value="hydrothermal">Hydrothermal</option>
+                  <option value="unknown">Unknown</option>
+                </select>
+              </label>
+              <label>
+                Alteration
+                <select id="alteration">
+                  <option value="fresh">Fresh</option>
+                  <option value="slightly-altered">Slightly altered</option>
+                  <option value="moderately-altered">Moderately altered</option>
+                  <option value="strongly-altered">Strongly altered</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Field notes
+              <textarea id="notes" rows="4" placeholder="Describe bedding, fractures, fossils, veining, weathering, and context..."></textarea>
+            </label>
+
+            <button type="submit">Generate field assistance</button>
+          </form>
+        </section>
+
+        <section class="panel results-panel">
+          <h2>Interpretation</h2>
+          <div id="resultCard" class="result-card empty">
+            <h3>No sample analyzed yet</h3>
+            <p>Complete the form to receive a first-pass identification, likely rock type, and field follow-up recommendations.</p>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-block">
+              <span class="label">Likely lithology</span>
+              <strong id="lithologyValue">—</strong>
+            </div>
+            <div class="mini-block">
+              <span class="label">Confidence</span>
+              <strong id="confidenceValue">—</strong>
+            </div>
+            <div class="mini-block">
+              <span class="label">Suggested tests</span>
+              <strong id="testsValue">—</strong>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="panel log-panel">
+        <div class="log-header">
+          <h2>Saved sample log</h2>
+          <button id="clearLog" class="secondary" type="button">Clear log</button>
+        </div>
+        <ul id="sampleLog" class="sample-log"></ul>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

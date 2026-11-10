@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f3f5f0;
+  --panel: #ffffff;
+  --panel-alt: #f8f9f6;
+  --primary: #1f5d47;
+  --primary-dark: #163f32;
+  --accent: #d9b37d;
+  --text: #1f2a24;
+  --muted: #65736b;
+  --line: #dfe8df;
+  --danger: #8c3d2f;
+  --shadow: 0 18px 35px rgba(28, 42, 34, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #edf0ea 0%, #f7f8f5 100%);
+  color: var(--text);
+}
+
+.container {
+  width: min(1100px, calc(100% - 32px));
+  margin: 32px auto 56px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  color: var(--primary-dark);
+}
+
+.status-chip {
+  background: rgba(31, 93, 71, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(31, 93, 71, 0.14);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 22px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  color: var(--primary-dark);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field-row {
+  display: grid;
+  gap: 16px;
+}
+
+.two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel-alt);
+  padding: 12px 14px;
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  opacity: 0.98;
+}
+
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+
+.result-card {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #f7faf6 0%, var(--panel) 100%);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.result-card.empty {
+  background: #f7f9f6;
+}
+
+.result-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+}
+
+.result-card p,
+.result-card li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.result-card ul {
+  padding-left: 18px;
+  margin: 12px 0 0;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.mini-block {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel-alt);
+  padding: 14px;
+}
+
+.label {
+  display: block;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+
+.log-panel {
+  margin-top: 22px;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sample-log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sample-log li {
+  border: 1px solid var(--line);
+  background: var(--panel-alt);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sample-log strong {
+  color: var(--primary-dark);
+}
+
+@media (max-width: 760px) {
+  .grid,
+  .two-col,
+  .mini-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .log-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
